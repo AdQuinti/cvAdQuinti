@@ -1,0 +1,163 @@
+/* style.css - estilo para CV AdQuinti */
+/* Paleta: oscuro con acentos azul/verde neón */
+:root{
+  --bg:#0b1020;
+  --panel:#071021;
+  --muted:#93c5fd;
+  --accent:#00ff99;
+  --text:#e6eef8;
+  --glass: rgba(255,255,255,0.03);
+  --card-radius:16px;
+  --gap:18px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size:16px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#061024);color:var(--text);-webkit-font-smoothing:antialiased}
+a{color:var(--muted);text-decoration:none}
+.container{
+  max-width:1100px;
+  margin:28px auto;
+  display:grid;
+  grid-template-columns: 320px 1fr;
+  gap:var(--gap);
+  padding:22px;
+}
+/* afecta solo al nombre en cuerpo central*/
+.tittle {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  color: #429fdc; /* azul brillante */
+  font-size: 1.5rem;
+  text-align: left;
+  margin-bottom: 20px;
+}
+/* Left column */
+.left-col{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:var(--card-radius);
+  padding:20px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+  min-height:520px;
+}
+.photo{display:flex;justify-content:center;margin-bottom:12px}
+.avatar{width:140px;height:140px;border-radius:50%;overflow:hidden;box-shadow: 0 6px 18px rgba(0,0,0,0.6);border:4px solid rgba(255,255,255,0.03)}
+.name{font-size:1.6rem;margin:8px 0 0;text-align:center}
+.title{font-size:0.95rem;opacity:0.85;text-align:center;margin:6px 0 12px}
+
+/* Contact */
+.contact{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.contact-link{display:inline-block;padding:8px;border-radius:8px;background:var(--glass);color:var(--text);font-weight:600}
+.profile-card, .skills-card, .tools-card{margin-top:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));padding:12px;border-radius:10px}
+.profile-card h2, .skills-card h2, .tools-card h2{margin:0 0 8px;color:var(--muted)}
+
+/* Right column */
+.right-col{
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.005));
+  border-radius:var(--card-radius);
+  padding:22px;
+  box-shadow: 0 10px 30px rgba(3,7,20,0.6);
+  min-height:520px;
+}
+.header-right h2{margin:0 0 6px;color:var(--accent)}
+.header-right .subtitle{opacity:0.85;margin:0 0 16px}
+
+/* Accordion (pure CSS toggles) */
+.accordion{margin-bottom:14px;border-radius:10px;overflow:hidden;background:transparent}
+.accordion input{display:none}
+.accordion-label{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  cursor:pointer;
+  padding:12px 14px;
+  border-radius:10px;
+  background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  border:1px solid rgba(255,255,255,0.02);
+  font-weight:700;
+  color:var(--muted);
+}
+.accordion-label::after{
+  content: '+';
+  font-weight:900;
+  transform:rotate(0deg);
+  transition:transform .25s ease;
+}
+.accordion input:checked + .accordion-label::after{
+  content: '-';
+  transform:rotate(0deg);
+}
+
+/* Hidden content */
+.accordion-content{
+  max-height:0;
+  overflow:hidden;
+  padding:0 14px;
+  transition: max-height .36s ease, padding .36s ease;
+  border-left:3px solid rgba(14,165,233,0.06);
+  margin-top:0;
+}
+.accordion input:checked ~ .accordion-content{
+  padding:12px 14px 18px 14px;
+  max-height:1000px;
+}
+
+/* Content styles */
+.accordion-content h3{margin:6px 0;color:var(--muted)}
+.accordion-content ul{margin:6px 0 12px;padding-left:18px}
+.accordion-content p{margin:6px 0 12px;line-height:1.35;color:var(--text)}
+.note{font-size:0.9rem;color:rgba(230,238,248,0.8)}
+
+/* CTA */
+.cta{margin-top:18px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(0,0,0,0.15), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+.cta-links {
+  display: flex;              /* Asegura que use flexbox */
+  align-items: center;        /* Centra verticalmente los botones */
+  justify-content: center;    /* 🔹 Centra horizontalmente */
+  gap: 10px;                  /* Espacio entre botones */
+  flex-wrap: wrap;            /* Permite que los botones bajen si no caben */
+  margin-top: 8px;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, var(--muted), var(--accent));
+  color: #031028;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover: cambia a estilo "ghost" */
+.btn:hover {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Mantener el aspecto original del botón ghost */
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--muted);
+}
+
+/* Y cuando pasas sobre el ghost, que invierta (para que destaque también) */
+.btn.ghost:hover {
+  background: linear-gradient(90deg, var(--muted), var(--accent));
+  color: #031028;
+  border-color: transparent;
+}
+
+
+/* Footer */
+.page-footer{text-align:center;padding:10px;margin-top:16px;opacity:0.8}
+
+/* Responsive adjustments */
+@media (max-width:900px){
+  .container{grid-template-columns:1fr; padding:12px;}
+  .left-col{order:2}
+  .right-col{order:1}
+  .avatar{width:110px;height:110px}
+}
