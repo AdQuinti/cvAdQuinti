@@ -1,6 +1,5 @@
 CV AdQuinti - One-page website (HTML + CSS)
 ------------------------------------------
-Contenido del ZIP:
 - index.html
 - css/style.css
 
